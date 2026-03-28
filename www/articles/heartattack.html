@@ -1,0 +1,375 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Article Layout</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+body{
+  margin:0;
+  font-family:Roboto,Arial,sans-serif;
+  background:#f4f6f8;
+}.header{ background:#fff; padding:15px; box-shadow:0 2px 5px rgba(0,0,0,.1); display:flex;align-items:center; }
+h2 {
+  color: #2c786c;
+  font-family: , Roboto,Arial, sans-serif;
+}
+h1 {
+  color: #1f4e3d;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.header h2{ margin:0 auto; color:#1f4e3d; }
+
+.container{ max-width:800px; margin:20px auto; background:#fff; padding:20px; }
+
+.category{ color:#1f4e3d; font-size:14px; text-transform:uppercase; }
+
+.title{ font-size:28px; font-weight:700; margin:10px 0; }
+
+.featured-img{ width:100%; border-radius:3px; margin:15px 0; }
+
+.author{ font-size:13px; color:#777; margin-bottom:20px; }
+
+.content p{ font-size:17px; line-height:1.7; margin-bottom:15px; color:#333; }
+@media(max-width:600px){
+  .title{font-size:19px;}
+  h2{font-size:20px;}
+  .container{padding:15px;}
+}
+@media(max-width:600px){
+  .title{font-size:19px;}
+  h1{font-size:20px;}
+  .container{padding:15px;}
+}
+.image-card{
+  width:100%;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  border-radius:6px;
+  margin:15px 0;
+  background:#eee;
+}
+
+.image-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+/* ===== Feedback Box ===== */
+.feedback-box{
+  position:fixed;
+  right:20px;
+  top:180px;
+  width:220px;
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 4px 14px rgba(0,0,0,.12);
+  padding:15px;
+  font-family:Roboto,Arial,sans-serif;
+  z-index:999;
+}
+
+.feedback-box h3{
+  font-size:16px;
+  margin:0 0 10px;
+  color:#333;
+}
+
+.feedback-buttons{
+  display:flex;
+  gap:8px;
+}
+
+.feedback-buttons button{
+  flex:1;
+  border:none;
+  padding:8px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:500;
+}
+
+.btn-yes{ background:#2c786c; color:#fff; }
+.btn-no{ background:#e83e8c; color:#fff; }
+
+.feedback-count{
+  font-size:12px;
+  color:#666;
+  margin-top:8px;
+}
+
+/* 📱 Mobile — box goes to bottom */
+@media(max-width:900px){
+  .feedback-box{
+    position:static;
+    width:100%;
+    margin-top:25px;
+  }
+}
+</style>
+
+</head>
+<body><div class="header">
+  <h2>HealthXRay</h2>
+</div><div class="container">  <div class="category">Heart problems</div>  <div class="image-card">
+  <img src="https://cdn.pixabay.com/photo/2016/11/21/15/45/man-1846050_1280.jpg">
+</div>  <div class="author">By HealthXray Team • Updated 2026</div>  <div class="content">
+<article>
+  <h1>Heart Attack Deaths Rising in Younger Adults, Women Face Higher Risk</h1>
+
+  <p><strong>Published: February 26, 2026</strong></p>
+
+  <p>
+    A new large-scale study has revealed a worrying trend: heart attack deaths are
+    increasing among younger adults, with women showing a higher risk of dying
+    after their first heart attack compared to men.
+  </p>
+
+  <p>
+    The research, highlighted in a special Go Red for Women issue of the Journal of
+    the American Heart Association, analyzed nearly one million hospitalizations
+    of adults aged 18 to 54 between 2011 and 2022.
+  </p>
+
+  <h2>Key Findings from the Study</h2>
+
+  <p>
+    Researchers found that in-hospital death rates rose by an absolute 1.2%
+    among younger adults experiencing a first severe heart attack (STEMI).
+    Meanwhile, death rates for the less severe NSTEMI type remained largely unchanged.
+  </p>
+
+  <ul>
+    <li>Women had higher in-hospital death rates than men after a first heart attack.</li>
+    <li>Women were less likely to receive cardiovascular procedures.</li>
+    <li>Nontraditional risk factors played a major role in outcomes.</li>
+    <li>Younger women showed particularly elevated risk levels.</li>
+  </ul>
+
+  <h2>Understanding the Risk in Younger People</h2>
+
+  <p>
+    Heart attacks are often considered a problem of older age, but the new findings
+    challenge this assumption. According to the study’s lead author, Dr. Mohan
+    Satish, younger adults — especially women — are facing a real and growing risk.
+  </p>
+
+  <p>
+    The analysis showed that factors such as low income, kidney disease, and
+    non-tobacco drug use were strongly linked to higher death risk, sometimes even
+    more than traditional risk factors like smoking or high blood pressure.
+  </p>
+
+  <h2>Why Women May Be at Greater Risk</h2>
+
+  <p>
+    Although complication rates were similar between men and women, women were
+    found to undergo fewer diagnostic and treatment procedures. Researchers say
+    this gap in care may partly explain the higher mortality rates.
+  </p>
+
+  <p>
+    The findings highlight the need for earlier risk detection, better awareness,
+    and more aggressive prevention strategies — particularly for younger women.
+  </p>
+
+  <h2>Study Limitations</h2>
+
+  <p>
+    The researchers noted that the study relied on hospital administrative data,
+    which may include coding inaccuracies. In addition, long-term follow-up after
+    hospital discharge was not available.
+  </p>
+
+  <h2>What This Means for the Future</h2>
+
+  <p>
+    Experts say improving heart attack outcomes in adults under 55 will require
+    earlier screening and greater attention to nontraditional risk factors.
+    The findings serve as an important reminder that heart disease is not only
+    an older person’s condition.
+  </p>
+  <h2>Heart Attack Symptoms</h2>
+  <!-- Video Card -->
+<div class="video-card">
+  <div class="video-wrapper">
+    <iframe 
+      src="https://www.youtube.com/embed/N9yUmduG820"
+      title="Health Video"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="video-content">
+    <h3>Watch: Heart Health Awareness</h3>
+    <p>This video explains key warning signs and prevention tips related to heart health.</p>
+  </div>
+</div>
+
+<style>
+.video-card{
+  max-width: 900px;
+  margin: 30px auto;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.video-wrapper{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* ✅ perfect 16:9 */
+}
+
+.video-wrapper iframe{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  border: 0;
+}
+
+.video-content{
+  padding: 18px 20px;
+}
+
+.video-content h3{
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.video-content p{
+  margin: 0;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.5;
+}
+</style>
+<p>A heart attack can sometimes appear suddenly, but in many cases the body gives warning signs hours or even days earlier. Recognizing these symptoms early can be life-saving.</p>
+
+<h3>Common Symptoms</h3>
+<ul>
+  <li>Pressure, tightness, or heaviness in the chest</li>
+  <li>Pain spreading to the left arm, neck, jaw, or back</li>
+  <li>Shortness of breath or sudden anxiety</li>
+  <li>Cold sweats</li>
+  <li>Nausea or a feeling of vomiting</li>
+  <li>Unusual fatigue, especially in women</li>
+</ul>
+
+<h3>Symptoms in Women</h3>
+<p>Women do not always experience the classic symptoms of a heart attack. In many cases, the warning signs can be subtle or different from those seen in men. This is one reason heart attacks in women are sometimes recognized later.</p>
+<ul>
+  <li>Extreme fatigue days before the event</li>
+  <li>Mild chest discomfort or pressure instead of severe pain</li>
+  <li>Pain in the back or jaw</li>
+  <li>Indigestion-like discomfort</li>
+</ul>
+
+<h2>When to Seek Emergency Help</h2>
+<p>If any of the following symptoms last more than <strong>5 minutes</strong>, seek emergency medical help immediately:</p>
+<ul>
+  <li>Persistent chest pain or pressure</li>
+  <li>Severe shortness of breath</li>
+  <li>Sudden dizziness or fainting</li>
+</ul>
+<p><strong>Do not delay — quick treatment can save heart muscle and lives.</strong></p>
+
+<h2>Prevention Tips</h2>
+<p>The good news is that many heart attacks can be prevented through consistent healthy lifestyle choices.</p>
+
+<h3>1. Eat a Heart-Healthy Diet</h3>
+<ul>
+  <li>Eat more fruits, vegetables, and whole grains</li>
+  <li>Limit fried and high-fat foods</li>
+  <li>Reduce excess salt and sugar intake</li>
+</ul>
+
+<h3>2. Stay Physically Active</h3>
+<p>Aim for at least <strong>150 minutes of moderate exercise per week</strong>, such as brisk walking. Regular activity helps control weight and improves heart health.</p>
+
+<h3>3. Manage Blood Pressure and Blood Sugar</h3>
+<p>High blood pressure and diabetes are major risk factors for heart disease. Regular checkups and proper management are essential.</p>
+
+<h3>4. Avoid Smoking and Drugs</h3>
+<p>Tobacco and recreational drugs damage blood vessels and significantly increase heart attack risk.</p>
+
+<h3>5. Reduce Stress</h3>
+<p>Chronic stress can negatively affect heart health. Make time for relaxation, deep breathing, prayer, walking, or other calming activities.</p>
+
+<h2>Final Advice</h2>
+<p>Never ignore warning signs of a heart attack — especially if you are a younger adult or a woman, as recent research suggests risk is rising in these groups. Early recognition and healthy lifestyle habits play a critical role in protecting your heart.</p>
+<h2>Risk Factors That Increase Heart Attack Chances</h2>
+<p>
+While heart attacks can sometimes occur without warning, most people who experience them have one or more underlying risk factors. Understanding these risks can help individuals take early preventive steps.
+</p>
+
+<ul>
+<li><strong>High blood pressure:</strong> Over time, uncontrolled blood pressure can damage arteries and increase strain on the heart.</li>
+<li><strong>High cholesterol:</strong> Excess LDL (“bad” cholesterol) can build up in artery walls and restrict blood flow.</li>
+<li><strong>Diabetes:</strong> Poor blood sugar control is closely linked with cardiovascular disease.</li>
+<li><strong>Obesity:</strong> Excess body weight increases the workload on the heart and raises inflammation levels.</li>
+<li><strong>Sedentary lifestyle:</strong> Lack of regular physical activity weakens heart health over time.</li>
+<li><strong>Family history:</strong> A genetic background of early heart disease can elevate personal risk.</li>
+</ul>
+
+<h2>Early Screening and Regular Checkups</h2>
+<p>
+Health experts emphasize that routine medical checkups play a critical role in preventing severe cardiac events. Many risk factors — such as high blood pressure, elevated cholesterol, and early diabetes — can remain silent for years.
+</p>
+
+<p>
+Adults, especially those with a family history of heart disease or lifestyle risk factors, should consider periodic screening that may include blood pressure measurement, lipid profile testing, blood sugar evaluation, and weight monitoring.
+</p>
+
+<p>
+Early detection allows doctors to recommend lifestyle adjustments or medications before serious complications develop.
+</p>
+
+<h2>Heart Health in Daily Life</h2>
+<p>
+Protecting your heart does not always require dramatic changes. Small, consistent habits practiced daily often produce the greatest long-term benefits. Simple steps such as choosing home-cooked meals, walking regularly, maintaining a healthy sleep routine, and managing emotional stress can significantly support cardiovascular health.
+</p>
+
+<p>
+For younger adults and women — groups now showing rising risk trends — proactive awareness and preventive care are especially important.
+</p>
+
+  <p><em>Disclaimer: This article is for informational purposes only and does not replace professional medical advice.</em></p>
+</article></body>
+<div class="feedback-box">
+  <h3>Was this article helpful?</h3>
+
+  <div class="feedback-buttons">
+    <button class="btn-yes" onclick="voteFeedback('yes')">Yes</button>
+    <button class="btn-no" onclick="voteFeedback('no')">No</button>
+  </div>
+
+  <div class="feedback-count">
+    👍 Yes: <span id="yesCount">0</span> |
+    👎 No: <span id="noCount">0</span>
+  </div>
+</div>
+<script>
+let yesVotes = 0;
+let noVotes = 0;
+
+function voteFeedback(type){
+  if(type === 'yes'){
+    yesVotes++;
+    document.getElementById('yesCount').innerText = yesVotes;
+  }else{
+    noVotes++;
+    document.getElementById('noCount').innerText = noVotes;
+  }
+}
+</script>
+</html>

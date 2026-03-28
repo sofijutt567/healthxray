@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Calories calculater - HealthXRay</title>
+    
+    <!-- Meta tags for SEO & Social -->
+ <meta name="description" content="Free Calories Calculator to estimate your daily energy needs. Calculate BMR and TDEE based on age, gender, activity, and weight goals.">
+<meta name="keywords" content="daily calorie calculator, BMR calculator 2026, TDEE calculator free, calories for weight loss, maintenance calories, HealthXray tools">
+<link rel="canonical" href="https://healthxray.online/calories.html" />
+
+    <meta name="keywords" content="BMI calculator free, body mass index calculator, check BMI online, HealthXray">
+    <meta name="author" content="HealthXRay">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Calories calculater - HealthXRay">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://healthxray.online/calories.html">
+    <meta property="og:image" content="https://healthxray.online/images/calories-og.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="calories - HealthXRay">
+    <meta name="twitter:image" content="https://healthxray.online/images/pregnancy-og.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+<link rel="stylesheet" href="Css files/calories.css">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+
+<link rel="icon" type="image/png" sizes="192x192" href="favicon_io/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
+
+<link rel="manifest" href="favicon_io/site.webmanifest">
+
+
+    <!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "HealthXray Calories Calculator",
+  "operatingSystem": "All",
+  "applicationCategory": "HealthApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": "BMR Calculation, TDEE Estimation, Weight Loss/Gain Goals"
+}
+</script>
+
+</head>
+<body>
+    <div class="container">
+<header class="site-header">
+    <div class="logo-area">
+        <div class="logo-icon"><i class="fas fa-fire"></i></div>
+        <div class="logo-text">
+            <h1>Calories calculater</h1>
+        </div>
+    </div>
+
+    <!-- hamburger checkbox -->
+    <input type="checkbox" id="nav-toggle">
+    <div class="hamburger-wrapper">
+        <label for="nav-toggle" class="hamburger-label"></label>
+    </div><button class="back-arrow" id="backArrow">
+    <i class="fas fa-arrow-right"></i>
+</button></header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="calculator-card">
+                <h2><i class="fas fa-calculator"></i> Calculate Your Calories</h2>
+<form id="calorieForm">
+
+<div class="form-group">
+<label for="age">Age</label>
+<input type="number" id="age" required>
+</div>
+
+<div class="form-group">
+<label for="gender">Gender</label>
+<select id="gender">
+<option value="male">Male</option>
+<option value="female">Female</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="weight">Weight (kg)</label>
+<input type="number" id="weight" required>
+</div>
+
+<div class="form-group">
+<label for="height">Height (cm)</label>
+<input type="number" id="height" required>
+</div>
+
+<div class="form-group">
+<label for="activity">Activity Level</label>
+<select id="activity">
+<option value="1.2">Sedentary (little exercise)</option>
+<option value="1.375">Light exercise</option>
+<option value="1.55">Moderate exercise</option>
+<option value="1.725">Heavy exercise</option>
+</select>
+</div>
+
+<button type="submit" class="calculate-btn">Calculate Calories</button>
+
+</form>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="results" id="results">
+            <div class="results-header">
+           <h2>Your Calories Result</h2>
+            </div>
+            <div class="bmi-display">
+<div class="bmi-value" id="calories">--</div>
+<div class="bmi-category" id="calorieType">--</div>
+                            <div class="info-card">
+        <h2>How the Calories Calculator Works</h2>
+<p>
+A calories calculator estimates how many calories your body needs each day to maintain your weight. 
+It uses factors such as your age, gender, height, weight, and activity level to calculate your 
+Basal Metabolic Rate (BMR). Your BMR is the number of calories your body needs to perform basic 
+functions like breathing and digestion. The calculator then adjusts this value based on your 
+daily activity to estimate your total daily calorie needs.
+</p>
+            </div>
+        </div>
+    </div>
+    <!-- ==================== FAQ Section (2 Questions) ==================== -->
+<section class="faq-section">
+    <h2>Frequently Asked Questions (FAQ)</h2>
+
+    <div class="faq-item">
+        <button class="faq-question">1. How many calories do I need daily?</button>
+        <div class="faq-answer">
+            <p>Your daily calorie needs depend on age, gender, weight, height, and activity level. 
+            Using a calorie calculator can provide a personalized estimate.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">2. Can I lose weight by reducing calories?</button>
+        <div class="faq-answer">
+            <p>Yes, consuming fewer calories than your body burns creates a calorie deficit, 
+            which can lead to weight loss. It's important to maintain balanced nutrition while reducing calories.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== Calories Article ==================== -->
+<article class="calories-article">
+    <h1>Complete Guide to Daily Calories – HealthXRay</h1>
+    
+    <p>
+    Calories are a measure of energy in the food and drinks you consume. Your body needs calories to perform 
+    basic functions like breathing, circulation, and physical activity. Understanding your daily calorie requirements 
+    helps you maintain, lose, or gain weight in a healthy way.
+    </p>
+
+    <h2>What are Calories?</h2>
+    <p>
+    A calorie is a unit of energy. The food you eat contains calories in the form of carbohydrates, proteins, 
+    and fats. Your body burns calories to fuel metabolism, exercise, and daily activities.
+    </p>
+
+    <h2>How to Calculate Daily Calorie Needs</h2>
+    <p>
+    Daily calorie needs can be estimated using your Basal Metabolic Rate (BMR) and activity level. BMR represents 
+    the calories your body needs at rest to maintain vital functions.
+    </p>
+    <p><strong>BMR Formula (Mifflin-St Jeor Equation):</strong></p>
+    <ul>
+        <li>Men: BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5</li>
+        <li>Women: BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age − 161</li>
+    </ul>
+    <p>
+    Total daily calories = BMR × Activity Factor
+    </p>
+
+    <h2>Activity Factors</h2>
+    <table class="calories-table">
+        <thead>
+            <tr>
+                <th>Activity Level</th>
+                <th>Multiplier</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Sedentary</td><td>1.2</td><td>Little or no exercise</td></tr>
+            <tr><td>Light Exercise</td><td>1.375</td><td>1-3 days per week</td></tr>
+            <tr><td>Moderate Exercise</td><td>1.55</td><td>3-5 days per week</td></tr>
+            <tr><td>Heavy Exercise</td><td>1.725</td><td>6-7 days per week</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Calories for Weight Management</h2>
+    <ul>
+        <li><strong>Maintain weight:</strong> Consume calories equal to daily needs.</li>
+        <li><strong>Lose weight:</strong> Eat fewer calories than your body burns.</li>
+        <li><strong>Gain weight:</strong> Eat more calories than your body burns.</li>
+    </ul>
+
+    <h2>Calories from Different Nutrients</h2>
+    <table class="calories-table">
+        <thead>
+            <tr>
+                <th>Nutrient</th>
+                <th>Calories per gram</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Carbohydrates</td><td>4 kcal</td></tr>
+            <tr><td>Protein</td><td>4 kcal</td></tr>
+            <tr><td>Fat</td><td>9 kcal</td></tr>
+            <tr><td>Alcohol</td><td>7 kcal</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Tips to Manage Daily Calories</h2>
+    <ol>
+        <li>Track your meals using a calorie tracker or app.</li>
+        <li>Include a balance of carbohydrates, proteins, and healthy fats.</li>
+        <li>Eat plenty of vegetables and fruits.</li>
+        <li>Exercise regularly to burn extra calories.</li>
+        <li>Avoid sugary drinks and highly processed foods.</li>
+    </ol>
+
+    <h2>Common Myths About Calories</h2>
+    <ul>
+        <li>Myth: Skipping meals drastically reduces calories. <strong>Fact:</strong> Skipping can slow metabolism.</li>
+        <li>Myth: All calories are equal. <strong>Fact:</strong> Nutrient quality matters for health.</li>
+        <li>Myth: Only exercise matters. <strong>Fact:</strong> Calorie intake and diet quality are equally important.</li>
+    </ul>
+    <!-- ==================== Calories Article HTML ==================== -->
+<article class="calories-article">
+    <h1>The Ultimate Guide to Calories, Nutrition, and Healthy Energy Balance – HealthXRay</h1>
+
+    <p>
+    Calories are the fuel your body needs to perform all daily activities, from breathing to exercising. Understanding calories is essential for maintaining a healthy weight, improving fitness, and optimizing overall health. In this guide, we will explore the science of calories, daily requirements, calorie quality, and practical tips for managing energy balance.
+    </p>
+
+    <h2>What Are Calories?</h2>
+    <p>
+    A calorie is a unit of energy that measures how much energy food provides to the body. Our bodies require calories to perform vital functions, including:
+    </p>
+    <ul>
+        <li>Basic metabolism (breathing, heart beating, brain function)</li>
+        <li>Physical activity (walking, running, exercise)</li>
+        <li>Thermic effect of food (energy used to digest food)</li>
+    </ul>
+    <p>
+    The three main macronutrients provide calories differently:
+    </p>
+    <table class="calories-table">
+        <thead>
+            <tr>
+                <th>Macronutrient</th>
+                <th>Calories per Gram</th>
+                <th>Function</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Carbohydrates</td><td>4 kcal/g</td><td>Main source of energy for the body and brain</td></tr>
+            <tr><td>Proteins</td><td>4 kcal/g</td><td>Muscle repair, immune function, enzyme production</td></tr>
+            <tr><td>Fats</td><td>9 kcal/g</td><td>Energy storage, hormones, insulation, vitamin absorption</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Daily Caloric Needs</h2>
+    <p>
+    Everyone has different daily energy requirements depending on age, gender, weight, height, and activity level. The total calories needed daily are estimated using:
+    </p>
+    <ul>
+        <li><strong>Basal Metabolic Rate (BMR):</strong> Calories your body needs at rest to maintain life.</li>
+        <li><strong>Activity Multiplier:</strong> Additional calories burned during daily activities and exercise.</li>
+    </ul>
+
+    <h3>Calories by Activity Level</h3>
+    <table class="calories-table">
+        <thead>
+            <tr>
+                <th>Activity Level</th>
+                <th>Description</th>
+                <th>Multiplier</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Sedentary</td><td>Little or no exercise</td><td>1.2 × BMR</td></tr>
+            <tr><td>Lightly Active</td><td>Light exercise 1-3 days/week</td><td>1.375 × BMR</td></tr>
+            <tr><td>Moderately Active</td><td>Moderate exercise 3-5 days/week</td><td>1.55 × BMR</td></tr>
+            <tr><td>Very Active</td><td>Hard exercise 6-7 days/week</td><td>1.725 × BMR</td></tr>
+            <tr><td>Extra Active</td><td>Intense daily exercise / physically demanding job</td><td>1.9 × BMR</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Calories and Weight Management</h2>
+    <p>
+    Understanding calories is crucial for weight loss, maintenance, or gain. The principle is straightforward:
+    </p>
+    <ul>
+        <li><strong>Calorie Deficit:</strong> Consume fewer calories than your body burns → weight loss.</li>
+        <li><strong>Calorie Surplus:</strong> Consume more calories than your body burns → weight gain.</li>
+        <li><strong>Calorie Maintenance:</strong> Consume calories equal to what your body burns → stable weight.</li>
+    </ul>
+
+    <h2>Quality of Calories</h2>
+    <p>
+    Not all calories are equal. The source and nutrient content matter as much as the calorie count. Nutrient-dense calories help maintain health, while empty calories may contribute to weight gain and health issues.
+    </p>
+    <table class="calories-table">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Calories per Gram</th>
+                <th>Examples</th>
+                <th>Impact on Health</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Nutrient-dense</td><td>Varies</td><td>Fruits, vegetables, lean protein, whole grains</td><td>Supports energy, immunity, and weight management</td></tr>
+            <tr><td>Empty calories</td><td>Varies</td><td>Sugary drinks, pastries, fried snacks</td><td>May lead to weight gain, poor nutrition</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Calorie Tracking Tips</h2>
+    <ol>
+        <li>Use a reliable calorie calculator or app to estimate daily intake.</li>
+        <li>Record everything you eat and drink for accurate tracking.</li>
+        <li>Pay attention to portion sizes.</li>
+        <li>Balance macronutrients – carbs, protein, and fat.</li>
+        <li>Include fiber-rich foods to feel full longer.</li>
+    </ol>
+
+    <h2>Calories for Different Goals</h2>
+    <div class="calories-css-accordion">
+        <!-- Weight Loss -->
+        <input type="checkbox" id="weightLoss">
+        <label class="accordion-label" for="weightLoss">Calories for Weight Loss <span class="arrow">&#9662;</span></label>
+        <div class="accordion-content">
+            <p>To lose weight, create a moderate calorie deficit of 500-700 calories per day. This usually results in a safe weight loss of ~0.5 kg per week.</p>
+            <ul>
+                <li>Focus on high-protein meals to preserve muscle mass.</li>
+                <li>Include vegetables and whole grains to stay full.</li>
+                <li>Monitor progress weekly and adjust intake as needed.</li>
+            </ul>
+        </div>
+
+        <!-- Weight Gain -->
+        <input type="checkbox" id="weightGain">
+        <label class="accordion-label" for="weightGain">Calories for Weight Gain <span class="arrow">&#9662;</span></label>
+        <div class="accordion-content">
+            <p>For healthy weight gain, consume a calorie surplus of 300-500 calories per day, focusing on nutrient-dense foods.</p>
+            <ul>
+                <li>Include lean proteins, complex carbs, and healthy fats.</li>
+                <li>Strength training helps gain muscle instead of fat.</li>
+                <li>Track progress to avoid excessive fat gain.</li>
+            </ul>
+        </div>
+
+        <!-- Maintenance -->
+        <input type="checkbox" id="maintenance">
+        <label class="accordion-label" for="maintenance">Calories for Maintenance <span class="arrow">&#9662;</span></label>
+        <div class="accordion-content">
+            <p>To maintain your weight, consume calories equal to your total daily energy expenditure (BMR × activity multiplier).</p>
+            <ul>
+                <li>Balance macronutrients for sustained energy.</li>
+                <li>Stay active with moderate exercise.</li>
+                <li>Adjust intake as activity or weight changes.</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>Common Myths About Calories</h2>
+    <ul>
+        <li><strong>Myth:</strong> All calories are the same. <strong>Fact:</strong> Nutrient quality matters as much as quantity.</li>
+        <li><strong>Myth:</strong> Cutting calories drastically is the fastest way to lose weight. <strong>Fact:</strong> Extreme deficits can reduce metabolism and harm health.</li>
+        <li><strong>Myth:</strong> Skipping meals saves calories. <strong>Fact:</strong> Skipping meals can lead to overeating later and poor nutrient intake.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>
+    Understanding calories is not just about counting numbers; it’s about learning how your body uses energy and making informed food choices. 
+    By combining calorie awareness with balanced nutrition and regular activity, you can achieve sustainable health goals.
+    </p>
+    <p>
+    Use our calorie calculator to estimate your daily needs and tailor your diet to your personal goals. Remember, the key to lifelong health is consistency, not extreme measures.
+    </p>
+
+    <figure class="calories-figure">
+        <img src="images/calories-guide.jpg" alt="Calories Guide Chart">
+        <figcaption>Daily caloric needs vary based on age, gender, and activity level.</figcaption>
+    </figure>
+</article>
+    </div>
+</section>
+
+
+    <!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>explore</h4>
+          <a href="index.html">
+</i> Home
+</a>
+            <a href="privacy-policy.html"></i>Privacy Policy</a>
+
+            <a href="Terms.html"></i>Terms and services</a>
+        <div class="footer-col">
+            <h4>wellness topics</h4>
+            <a href="bmi.html">
+            <a href="#"><i class="fas fa-apple-alt"></i>What is Bmi</a>
+            <a href="#"><i class="fas fa-brain"></i> Mental health</a>
+            <a href="#"><i class="fas fa-utensils"></i> Nutrition</a>
+            <a href="#"><i class="fas fa-person-running"></i> Fitness</a>
+        </div>
+        <div class="footer-col">
+            <h4>connect</h4>
+            <p><i class="fab fa-facebook"></i> Healthxray</p>
+            <p><i class="far fa-envelope"></i> healthxray14@gmail.com</p>
+            <p><i class="fas fa-phone-alt"></i> +92 3447814644</p>
+        </div>
+    </div>
+    <div class="copyright">
+        <i class="far fa-copyright"></i> 2026 HealthXray – professional health blog. All rights reserved.
+    </div>
+</footer>
+
+    <!-- JS -->
+    <script src="js files/calories.js"></script>
+</body>
+</html>

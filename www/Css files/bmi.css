@@ -1,0 +1,515 @@
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+}
+html, body {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+/*----back errow bttn----*/
+.back-arrow {
+    background: #f4f9f7;
+    border: 2px solid #226653;
+    color: #226653;
+    padding: 0.6rem 0.8rem;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed; /* stays on screen */
+    top: 20px;       /* distance from top */
+    right: 20px;     /* moved to right */
+    z-index: 1000;
+}
+
+.back-arrow:hover {
+    background: #226653;
+    color: white;
+    border-color: #1a3b2f;
+}
+body {
+    background: #f4f9f7;
+    color: #1e2f4a;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- HEADER ---------- */
+.site-header {
+    background: white;
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid #8fc1b0;
+    flex-wrap: wrap;
+}
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo-icon {
+    background: #226653;
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+.logo-text h1 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #1a3b2f;
+}
+.logo-text p {
+    font-size: 0.75rem;
+    color: #567d6e;
+}
+.main-nav {
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.main-nav a {
+    text-decoration: none;
+    font-weight: 550;
+    color: #1f4e3d;
+    padding: 0.4rem 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+.main-nav a:hover {
+    border-bottom-color: #3b8b6e;
+    color: #0f3629;
+}
+.hamburger-wrapper {
+    display: none;
+}
+#nav-toggle {
+    display: none;
+}
+
+/* ---------- CONTENT (calculator + sidebar) ---------- */
+.content-wrapper {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* main + sidebar */
+    gap: 2rem;
+    align-items: start;
+}
+
+/* ---------- CALCULATOR ---------- */
+.calculator-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0,50,40,0.04);
+    transition: transform 0.3s ease;
+}
+.calculator-card:hover {
+    transform: translateY(-2px);
+}
+.calculator-card h2 {
+    color: #226653;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+input, select {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 2px solid #b7d9cd;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+input:focus, select:focus {
+    border-color: #226653;
+    outline: none;
+}
+.calculate-btn {
+    background: #226653;
+    color: white;
+    border: none;
+    padding: 0.9rem;
+    font-size: 1.1rem;
+    width: 100%;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.calculate-btn:hover {
+    background: #1a3b2f;
+}
+
+/* ---------- RESULTS ---------- */
+.results {
+    display: none;
+    margin-top: 1.5rem;
+    background: #e5f4ef;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+}
+.results.active {
+    display: block;
+}
+.bmi-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #226653;
+    margin-bottom: 0.5rem;
+}
+.bmi-category {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #1a3b2f;
+}
+
+/* ---------- SIDEBAR ---------- */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.sidebar-widget {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 16px rgba(34,83,70,0.03);
+    border: 1px solid #deede8;
+    transition: transform 0.3s ease;
+}
+.sidebar-widget:hover {
+    transform: translateY(-2px);
+}
+.sidebar-widget h3 {
+    font-size: 1.3rem;
+    color: #226653;
+    margin-bottom: 1rem;
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer {
+    background: #162b24;
+    color: #d6e9e1;
+    padding: 3rem 2rem 2rem;
+    margin-top: 2rem;
+    border-top: 4px solid #479f83;
+}
+.footer-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+}
+.footer-col h4 {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+    border-left: 4px solid #68b89b;
+    padding-left: 12px;
+}
+.footer-col p,
+.footer-col a {
+    color: #c7e0d7;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.7rem;
+    font-size: 0.95rem;
+}
+.footer-col a:hover {
+    color: #bef5e2;
+    padding-left: 5px;
+}
+.copyright {
+    text-align: center;
+    border-top: 1px solid #3c6052;
+    padding-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #9dbeb2;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media screen and (max-width: 1200px) {
+    .content-wrapper {grid-template-columns: 2fr 1fr;}
+}
+@media screen and (max-width: 950px) {
+    .content-wrapper {grid-template-columns: 1fr; padding: 0 1rem;}
+    .calculator-card, .sidebar-widget {margin: 0 auto;}
+}
+@media screen and (max-width: 880px) {
+    .main-nav {display: none; flex-direction: column; width: 100%; background: white; padding: 1.5rem; border-top: 2px solid #b8d9ce;}
+    #nav-toggle:checked ~ .main-nav {display: flex;}
+    .hamburger-wrapper {display: flex; align-items: center;}
+    .hamburger-label {font-size: 2rem; color: #226653; cursor: pointer;}
+}
+
+/* Smooth transitions for small screens */
+input, select, button, .calculator-card, .sidebar-widget {
+    transition: all 0.3s ease;
+}
+/* ==================== BMI Article CSS ==================== */
+.bmi-article {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.7;
+    color: #333;
+    max-width: 100%;
+    padding: 20px;
+}
+
+.bmi-article h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #567d6e;
+}
+
+.bmi-article h2 {
+    font-size: 1.6em;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.bmi-article p, 
+.bmi-article li, 
+.bmi-article td {
+    font-size: 1em;
+    margin-bottom: 12px;
+}
+
+.bmi-article ul, .bmi-article ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.bmi-article table.bmi-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.bmi-article table.bmi-table th,
+.bmi-article table.bmi-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.bmi-article table.bmi-table th {
+    background-color: #f0f4f8;
+    color: #567d6e;
+}
+
+.bmi-article figure.bmi-figure {
+    margin: 25px 0;
+    text-align: center;
+}
+
+.bmi-article figure.bmi-figure img {
+    width: 300px; /* Desktop small size */
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.bmi-article figure.bmi-figure figcaption {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Responsive: Mobile full width images */
+@media screen and (max-width: 768px) {
+    .bmi-article figure.bmi-figure img {
+        width: 100%; /* Full width on mobile */
+    }
+}
+/* ==================== FAQ CSS ==================== */
+.faq-section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.faq-section h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 25px;
+    color: #567d6e;
+}
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    width: 100%;
+    background: #ffffff;
+    border: none;
+    padding: 15px;
+    text-align: left;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.3s;
+}
+
+.faq-question:hover {
+    background: #deede8;
+}
+
+.faq-question::after {
+    content: "\f107"; /* FontAwesome chevron down */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s;
+}
+
+.faq-item.active .faq-question::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: #fff;
+    padding: 0 15px;
+}
+
+.faq-answer p {
+    margin: 10px 0;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+/* ==================== CSS-only Accordion ==================== */
+.bmi-css-accordion {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 10px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.bmi-css-accordion h2 {
+    text-align: center;
+    color: #1a73e8;
+    margin-bottom: 20px;
+}
+
+/* Hide checkboxes */
+.bmi-css-accordion input[type="checkbox"] {
+    display: none;
+}
+
+/* Accordion label (clickable part) */
+.accordion-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f4f8;
+    border: 2px solid #567d6e;
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 5px;
+    transition: background 0.3s;
+}
+
+.accordion-label:hover {
+    background-color: #deede8;
+}
+
+/* Arrow */
+.accordion-label .arrow {
+    transition: transform 0.3s;
+}
+
+/* Content panel */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    border-left: 3px solid #567d6e; /* left line indicator */
+    padding-left: 15px;
+    background-color: #fff;
+    margin-bottom: 15px;
+}
+
+/* Show content when checkbox is checked */
+.bmi-css-accordion input[type="checkbox"]:checked + .accordion-label + .accordion-content {
+    max-height: 500px; /* enough to show content */
+    padding: 10px 15px;
+}
+
+/* Rotate arrow when active */
+.bmi-css-accordion input[type="checkbox"]:checked + .accordion-label .arrow {
+    transform: rotate(180deg);
+}
+
+/* Tables inside content */
+.accordion-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.accordion-content table th,
+.accordion-content table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.accordion-content table th {
+    background-color: #f0f4f8;
+    color: #567d6e;
+}
+
+/* Lists inside content */
+.accordion-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-top: 10px;
+}

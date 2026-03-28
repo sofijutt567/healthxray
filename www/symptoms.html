@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthXray AI | Free Online Symptoms Checker & Triage Tool</title>
+<meta name="description" content="Use HealthXray's AI-powered symptoms checker for instant clinical insights. Our Llama-3.3 driven tool helps analyze symptoms like fever, pain, and more.">
+<meta name="keywords" content="AI symptoms checker, online medical triage, healthXray ai, symptom analysis tool, medical diagnosis assistant">
+<link rel="canonical" href="https://healthxray.online/symptoms.html" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+
+<link rel="icon" type="image/png" sizes="192x192" href="favicon_io/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
+
+<link rel="manifest" href="favicon_io/site.webmanifest">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "HealthXray AI Symptoms Checker",
+  "operatingSystem": "All",
+  "applicationCategory": "HealthApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Is HealthXray AI Symptoms Checker accurate?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "HealthXray uses advanced LLM models like Llama-3.3 to provide clinical insights based on medical triage patterns. However, it is a decision-support tool, not a diagnostic one."
+    }
+  }, {
+    "@type": "Question",
+    "name": "Does HealthXray store my health data?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No, we follow a 'Privacy First' mindset. No personally identifiable information is permanently stored; analysis is performed in real-time."
+    }
+  }]
+}
+</script>
+
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Css files/calories.css">
+
+    <style>
+        :root { --primary: #226653; --dark: #1e2f4a; --light-bg: #f0fdf4; }
+        
+        .calculator-card { max-width: 800px; margin: 20px auto; position: relative; padding: 25px; background: #fff; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        
+        /* Smart Search Box */
+        .search-wrapper { position: relative; margin-top: 10px; }
+        #symptomInput { width: 100%; padding: 15px; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; outline: none; transition: 0.3s; }
+        #symptomInput:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(34, 102, 83, 0.1); }
+        
+        #suggestions { 
+            position: absolute; width: 100%; background: white; 
+            border: 1px solid #ddd; z-index: 9999; max-height: 250px; 
+            overflow-y: auto; display: none; border-radius: 0 0 10px 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .suggestion-item { padding: 12px 20px; cursor: pointer; border-bottom: 1px solid #eee; text-align: left; color: #333; transition: 0.2s; }
+        .suggestion-item:hover { background: var(--light-bg); color: var(--primary); }
+        
+        .tags-area { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; min-height: 30px; }
+        .s-tag { background: var(--primary); color: white; padding: 8px 16px; border-radius: 50px; font-size: 0.85rem; display: flex; align-items: center; animation: fadeIn 0.3s ease; }
+
+        .prompt-box { width: 100%; height: 120px; padding: 15px; border: 2px solid #e2e8f0; border-radius: 10px; margin-top: 10px; resize: none; font-family: inherit; outline: none; }
+        .calculate-btn { background: var(--primary); color: white; width: 100%; padding: 16px; border: none; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 1.1rem; transition: 0.3s; margin-top: 25px; }
+
+        /* --- RESULT BOX FIX (LEFT ALIGNMENT) --- */
+        #aiResponse { 
+            text-align: left !important; /* Forces left alignment */
+            background: #fff; 
+            padding: 20px;
+            color: #333;
+            line-height: 1.8;
+        }
+        #aiResponse strong { color: var(--primary); display: block; margin-top: 15px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="site-header">
+            <div class="logo-area">
+                <div class="logo-icon"><i class="fas fa-robot"></i></div>
+                <div class="logo-text"><h1>HealthXray AI</h1></div>
+            </div>
+            <button class="back-arrow" id="backArrow"><i class="fas fa-arrow-right"></i></button>
+        </header>
+
+        <div class="main-content">
+            <div class="calculator-card">
+                <h2 style="color: var(--dark);"><i class="fas fa-notes-medical"></i> Symptom Analysis</h2>
+                <form id="symptomForm">
+                    <div class="search-wrapper">
+                        <label style="font-weight: 600; display: block; margin-bottom: 8px;"><i class="fas fa-search"></i> Select Symptoms</label>
+                        <input type="text" id="symptomInput" autocomplete="off" placeholder="Type to search...">
+                        <div id="suggestions"></div>
+                    </div>
+                    <div id="selectedTags" class="tags-area"></div>
+
+                    <div style="margin-top:25px; border-top: 1px dashed #e2e8f0; padding-top: 20px;">
+                        <label style="font-weight: 600;"><i class="fas fa-pen-fancy"></i> Description</label>
+                        <textarea id="userStory" class="prompt-box" placeholder="Describe your condition..."></textarea>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                        <div>
+                            <label style="font-weight: 600;">Age</label>
+                            <input type="number" id="age" required style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px;">
+                        </div>
+                        <div>
+                            <label style="font-weight: 600;">Gender</label>
+                            <select id="gender" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px;">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="calculate-btn">
+                        <i class="fas fa-magic"></i> Generate AI Analysis
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="results" id="results" style="display:none; margin-top: 40px; margin-bottom: 60px;">
+            <div class="results-header" style="background: var(--dark); color: white; padding: 15px; border-radius: 12px 12px 0 0; text-align: center;">
+                <h2 style="margin:0; font-size: 1.3rem;"><i class="fas fa-file-medical"></i> Clinical Insight Report</h2>
+            </div>
+            <div id="aiResponse"></div>
+        </div>
+    </div>
+    
+<style>
+    .symptom-article-full {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 60px 8%;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.8;
+        color: #2d3748;
+        background-color: #ffffff;
+        box-sizing: border-box;
+    }
+
+    .symptom-article-full h2 {
+        color: #226653;
+        font-size: clamp(28px, 6vw, 42px);
+        font-weight: 800;
+        border-bottom: 5px solid #226653;
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+    }
+
+    .symptom-article-full h3 {
+        color: #1e2f4a;
+        font-size: clamp(22px, 4vw, 30px);
+        margin-top: 50px;
+        font-weight: 700;
+        border-left: 6px solid #226653;
+        padding-left: 15px;
+    }
+
+    .symptom-article-full p {
+        font-size: 18px;
+        margin-bottom: 25px;
+        text-align: justify;
+    }
+
+    .symptom-article-full ul {
+        background: #f1f5f9;
+        padding: 40px;
+        border-radius: 15px;
+        list-style: none;
+        margin: 30px 0;
+    }
+
+    .symptom-article-full li {
+        margin-bottom: 20px;
+        padding-left: 35px;
+        position: relative;
+        font-size: 18px;
+    }
+
+    .symptom-article-full li::before {
+        content: "✓"; 
+        position: absolute;
+        left: 0;
+        color: #226653;
+        font-weight: bold;
+        font-size: 22px;
+    }
+
+    .info-graphic-placeholder {
+        width: 100%;
+        background: #e2e8f0;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 40px 0;
+        border-radius: 15px;
+        font-style: italic;
+        color: #4a5568;
+    }
+
+    .warning-panel {
+        background: #fff5f5;
+        border: 2px solid #feb2b2;
+        padding: 30px;
+        border-radius: 12px;
+        color: #c53030;
+        margin-top: 50px;
+        font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+        .symptom-article-full {
+            padding: 40px 5%;
+        }
+    }
+</style>
+
+<article class="symptom-article-full">
+    <h2>The Digital Front Door: Comprehensive Guide to AI Symptoms Checker Tools</h2>
+    
+    <p>
+        In the rapidly evolving landscape of modern medicine, the **AI Symptoms Checker** has emerged as the "Digital Front Door" to the healthcare system. As global populations grow and medical facilities face unprecedented pressure, technology must step in to provide immediate, reliable, and scalable triage solutions. HealthXray leverages state-of-the-art Large Language Models (LLMs) to provide users with a preliminary clinical understanding of their physical well-being.
+    </p>
+
+    <h3>1. The Science of Algorithmic Triage</h3>
+    <p>
+        An AI Symptoms Checker does not simply "search the web" for your symptoms. Instead, it utilizes a complex architecture of clinical reasoning pathways. When you input symptoms like "Abdominal Pain" or "Dizziness," the system executes a multi-layered analysis:
+    </p>
+    <ul>
+        <li><strong>Demographic Weighting:</strong> Adjusting the probability of conditions based on the age and gender of the patient.</li>
+        <li>"Just like our BMI Calculator uses height and weight, this tool uses age and gender..."<strong>Symptom Clustering:</strong> Identifying how multiple symptoms (e.g., fever and a stiff neck) relate to one another to narrow down rare conditions.</li>
+        <li><strong>Negative Predictive Value:</strong> Assessing the *absence* of certain "Red Flag" symptoms to determine the level of urgency.</li>
+    </ul>
+
+    
+
+    <h3>2. Enhancing Clinical Efficiency</h3>
+    <p>
+        For healthcare providers, the primary benefit of tools like HealthXray is the reduction of unnecessary ER visits. Statistics show that up to 30% of emergency room visits are for non-urgent issues that could have been managed at home or in primary care. By providing users with a "Urgency Level," the AI helps prioritize resources for patients in critical need of life-saving intervention.
+    </p>
+
+    <h3>3. The Role of LLMs (Llama-3.3) in Medical Analysis</h3>
+    <p>
+        Traditional symptom checkers were based on rigid "if-then" logic trees. If a user’s description didn't match the exact keyword, the system failed. Modern tools like HealthXray use the **Llama-3.3 engine**, which understands natural language. This means if you describe your pain as "throbbing," "sharp," or "dull," the AI understands the clinical nuance behind those descriptors and adjusts the differential diagnosis accordingly.
+    </p>
+
+    
+
+    <h3>4. Addressing Global Accessibility and Language Barriers</h3>
+    <p>
+        One of the most significant barriers to healthcare is language. In many regions, professional medical advice is only available in a secondary language. HealthXray’s bilingual capabilities (supporting both English and local languages like Urdu) ensure that a patient can describe their condition in their native tongue. This leads to better accuracy, as patients can provide more descriptive and emotionally resonant details about their suffering.
+    </p>
+
+    <h3>5. Data Privacy and Clinical Ethics</h3>
+    <p>
+        In the digital age, health data is incredibly sensitive. HealthXray is designed with a "Privacy First" mindset. No personally identifiable information is stored permanently in the AI node. The analysis is performed in real-time, and the resulting PDF is generated for the user's local use. This ensures that patients can seek advice without fear of their private medical history being compromised.
+    </p>
+
+    
+
+    <h3>6. Bridging the Gap: From Symptom Checker to Clinical Action</h3>
+    <p>
+        A symptom checker is the beginning of the journey, not the destination. The professional PDF generated by our tool is a powerful asset for your next doctor’s visit. Instead of spending 15 minutes of your appointment trying to remember when your symptoms started, you can hand your physician a document that outlines:
+    </p>
+    <ul>
+        <li>A clear timeline of symptom onset.</li>
+        <li>A ranked list of potential differential diagnoses.</li>
+        <li>AI-generated health recommendations based on current clinical guidelines.</li>
+        <li>The patient’s own descriptive narrative (User Story).</li>
+    </ul>
+
+    <h3>7. The Future: Integrated Health Ecosystems</h3>
+    <p>
+        The next decade will see AI symptoms checkers integrated with wearable devices. Imagine a system that doesn't just ask you how you feel, but also looks at your real-time heart rate, blood oxygen levels, and sleep patterns. HealthXray is paving the way for this integrated future, where medical assessment is proactive rather than reactive.
+    </p>
+
+    <h3>8. Understanding the "Failover" Necessity</h3>
+    <p>
+        Medical tools cannot afford "Server Errors." Our backend uses a **5-Key Failover System**. If a global API limit is reached or a server node goes offline, the system instantly switches to a backup node. This redundancy is what separates a professional clinical tool from a standard consumer app, ensuring that in a moment of panic, the user always receives a response.
+    </p>
+
+    <div class="warning-panel">
+        <strong>CRITICAL SAFETY NOTICE:</strong> This AI Symptoms Checker is a supplemental information tool and does NOT constitute medical advice, diagnosis, or treatment. Medical conditions can change rapidly. If you are experiencing symptoms of a stroke (slurred speech, facial drooping), heart attack (chest pressure), or severe allergic reaction, do not wait for an AI analysis. Call emergency services immediately.
+    </div>
+
+    <h3 style="border-left: none; padding-left: 0; text-align: center; margin-top: 60px; color: #999; font-size: 16px;">
+        HealthXray: Pioneering Digital Triage for a Healthier Tomorrow | Version 2.0.26
+    </h3>
+</article>
+<section class="disclaimer-area" style="background:#eee; padding:20px; font-size:0.8rem; margin-top:30px; border-radius:8px;">
+    <p><strong>Disclaimer:</strong> HealthXray provides evidence-based health information for educational purposes only. The AI Symptoms Checker and calculators are decision-support tools and do not provide medical diagnosis or treatment. Always consult a qualified healthcare professional for medical advice.</p>
+</section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script src="js files/symptoms.js"></script>
+
+    <script>
+        document.getElementById('backArrow').onclick = () => window.history.back();
+    </script>
+</body>
+</html>
