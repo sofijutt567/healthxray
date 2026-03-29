@@ -23,20 +23,40 @@ jobs:
           npm install
           npm install jetifier --save-dev
 
-      - name: Sync & Force Dependency Injection
+      - name: Sync & Repair Project
         run: |
           npx cap sync android
           
-          # 1. Root build.gradle repositories fix
-          sed -i 's/google()/google()\n        mavenCentral()/g' android/build.gradle
-          
-          # 2. HAR plugin ke build.gradle mein Ads library inject karna
-          find android/capacitor-cordova-android-plugins -name "build.gradle" -exec sed -i '/dependencies {/a \    implementation "com.google.android.gms:play-services-ads:23.0.0"' {} +
-          
-          # 3. App module mein bhi ensure karna
-          sed -i '/dependencies {/a \    implementation "com.google.android.gms:play-services-ads:23.0.0"' android/app/build.gradle
-          
-          # 4. AndroidX Migration
+          # Root build.gradle ko clean karke dependencies setup karna
+          cat <<EOT > android/build.gradle
+          buildscript {
+              repositories {
+                  google()
+                  mavenCentral()
+              }
+              dependencies {
+                  classpath 'com.android.tools.build:gradle:8.2.1'
+                  classpath 'com.google.gms:google-services:4.4.0'
+              }
+          }
+
+          allprojects {
+              repositories {
+                  google()
+                  mavenCentral()
+              }
+              // Force Google Ads to ALL modules
+              configurations.all {
+                  resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+                      if (details.requested.group == 'com.google.android.gms' && details.requested.name.contains('play-services-ads')) {
+                          details.useVersion '23.0.0'
+                      }
+                  }
+              }
+          }
+          EOT
+
+          # Jetifier and AndroidX Fix
           npx jetifier -p android
           find android/capacitor-cordova-android-plugins -name "*.java" -exec sed -i 's/android.support.annotation/androidx.annotation/g' {} +
           find android/capacitor-cordova-android-plugins -name "*.java" -exec sed -i 's/android.support.v4.app/androidx.core.app/g' {} +
