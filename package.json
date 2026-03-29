@@ -13,7 +13,8 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "cordova-plugin-admob-free": "^0.27.0"
+    "cordova-plugin-admob-free": "^0.27.0",
+    "jetifier": "^2.0.0"
   },
   "cordova": {
     "plugins": {
