@@ -23,16 +23,17 @@ jobs:
           npm install
           npm install jetifier --save-dev
 
-      - name: Sync & Force Fix
+      - name: Sync & Global Dependency Fix
         run: |
           npx cap sync android
-          # AdMob dependencies force inject karna
-          echo "dependencies { 
-            implementation 'com.google.android.gms:play-services-ads:23.0.0'
-            implementation 'androidx.appcompat:appcompat:1.6.1'
-            implementation 'androidx.browser:browser:1.5.0'
-          }" >> android/app/build.gradle
           
+          # Sabse important: Root build.gradle mein Ads library dalna
+          sed -i '/repositories {/a \        mavenCentral()' android/build.gradle
+          
+          # Har module (plugins) ke liye ads library force inject karna
+          find android -name "build.gradle" -exec sed -i '/dependencies {/a \    implementation "com.google.android.gms:play-services-ads:23.0.0"' {} +
+          
+          # Jetifier and Legacy Support Fix
           npx jetifier -p android
           find android -name "*.java" -exec sed -i 's/android.support.annotation/androidx.annotation/g' {} +
           find android -name "*.java" -exec sed -i 's/android.support.v4.app/androidx.core.app/g' {} +
@@ -42,7 +43,7 @@ jobs:
         run: |
           cd android
           chmod +x gradlew
-          ./gradlew clean assembleRelease --no-daemon
+          ./gradlew assembleRelease --no-daemon
           
       - name: Upload APK
         uses: actions/upload-artifact@v4
