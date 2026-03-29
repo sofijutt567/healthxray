@@ -22,12 +22,16 @@ jobs:
         run: |
           npm install
           npm install jetifier --save-dev
-          npm install cordova-promise-polyfill cordova-admob-sdk --save
 
       - name: Sync & Jetify
         run: |
           npx cap sync android
           npx jetifier
+
+      - name: Fix AdMob Annotation (Crucial Fix)
+        run: |
+          # Purani annotation library ko naye AndroidX se replace karna
+          find android/capacitor-cordova-android-plugins/src/main/java -name "*.java" -exec sed -i 's/android.support.annotation.NonNull/androidx.annotation.NonNull/g' {} +
 
       - name: Build APK
         run: |
