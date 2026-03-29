@@ -16,29 +16,29 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
 
       - name: Install Dependencies
         run: |
           npm install
           npm install jetifier --save-dev
 
-      - name: Sync & Jetify
+      - name: Sync & Force Jetify
         run: |
           npx cap sync android
-          npx jetifier
+          # Yeh command poore plugin folder ko modern code mein badal degi
+          npx jetifier -p android/capacitor-cordova-android-plugins
 
-      - name: Universal AndroidX Fix
+      - name: Universal AndroidX Fix (Final Touch)
         run: |
-          # Poore android folder mein jahan bhi purani support library hai, usay replace karein
-          grep -rl "android.support.annotation.NonNull" android | xargs sed -i 's/android.support.annotation.NonNull/androidx.annotation.NonNull/g' || true
-          grep -rl "android.support.annotation.Nullable" android | xargs sed -i 's/android.support.annotation.Nullable/androidx.annotation.Nullable/g' || true
+          # Bachi kuchi annotations ko manually theek karna
+          find android/capacitor-cordova-android-plugins -name "*.java" -exec sed -i 's/android.support.annotation/androidx.annotation/g' {} +
 
       - name: Build APK
         run: |
           cd android
           chmod +x gradlew
-          ./gradlew assembleRelease
+          ./gradlew clean assembleRelease
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
