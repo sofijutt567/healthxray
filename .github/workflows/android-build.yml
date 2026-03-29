@@ -13,19 +13,30 @@ jobs:
       - name: Setup Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: 22  # Version upgrade kar diya
+          node-version: 22
           
       - name: Install Dependencies
         run: |
           npm install @capacitor/cli @capacitor/core @capacitor/android
-          npm install --legacy-peer-deps || echo "Continuing..."
+          # AdMob ki missing dependencies force install karein
+          npm install cordova-promise-polyfill cordova-admob-sdk --save
 
-      - name: Sync Capacitor
-        run: npx cap sync android
+      - name: Initialize & Sync Android
+        run: |
+          # Agar android folder nahi hai to add karein
+          if [ ! -d "android" ]; then
+            npx cap add android
+          fi
+          npx cap sync android
 
-      - name: Build Android
+      - name: Build Android APK
         run: |
           cd android
+          # Gradlew check aur permissions
+          if [ ! -f "gradlew" ]; then
+            echo "Gradlew missing, repairing..."
+            gradle wrapper
+          fi
           chmod +x gradlew
           ./gradlew assembleRelease
 
