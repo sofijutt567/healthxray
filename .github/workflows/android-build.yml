@@ -16,22 +16,19 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install Dependencies
         run: |
           npm install
           npm install jetifier --save-dev
 
-      - name: Sync & Inject AdMob SDK
+      - name: Sync & Jetify
         run: |
           npx cap sync android
-          # AdMob SDK ko build file mein manually add karna
-          echo "dependencies { implementation 'com.google.android.gms:play-services-ads:22.6.0' }" >> android/app/build.gradle
-          # Jetifier run karna purane code ko naye mein badalne ke liye
           npx jetifier -p android/capacitor-cordova-android-plugins
 
-      - name: Universal AndroidX Fix
+      - name: Fix AndroidX Annotations
         run: |
           find android -name "*.java" -exec sed -i 's/android.support.annotation/androidx.annotation/g' {} +
 
