@@ -23,11 +23,15 @@ jobs:
           npm install
           npm install jetifier --save-dev
 
-      - name: Sync & Global Jetify
+      - name: Sync & Deep Fix
         run: |
           npx cap sync android
-          # Pure android folder ko modern AndroidX mein convert karein
+          # 1. Jetifier chalao
           npx jetifier -p android
+          # 2. Zabardasti saari annotations aur support libraries replace karo
+          find android -name "*.java" -exec sed -i 's/android.support.annotation/androidx.annotation/g' {} +
+          find android -name "*.java" -exec sed -i 's/android.support.v4.app/androidx.core.app/g' {} +
+          find android -name "*.java" -exec sed -i 's/android.support.v4.content/androidx.core.content/g' {} +
 
       - name: Build APK
         run: |
