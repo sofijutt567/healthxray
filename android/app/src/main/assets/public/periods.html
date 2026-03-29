@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Period Calculator - HealthXRay</title>
+    
+    <!-- Meta tags for SEO & Social -->
+  <meta name="description" content="Free Period Calculator to track your menstrual cycle, ovulation day, and fertile window accurately. Plan for pregnancy or track your health with HealthXRay.">
+<meta name="keywords" content="period calculator with ovulation, fertile window tracker 2026, menstrual cycle guide for beginners, calculate next period date, HealthXray fertility tools">
+<link rel="canonical" href="https://healthxray.online/periods.html" />
+
+    <meta name="author" content="HealthXRay">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Period Calculator - HealthXRay">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://healthxray.online/periods.html">
+    <meta property="og:image" content="https://healthxray.online/images/periods-og.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Period Calculator - HealthXRay">
+    <meta name="twitter:image" content="https://healthxray.online/images/periods-og.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="Css files/periods.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+
+<link rel="icon" type="image/png" sizes="192x192" href="favicon_io/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
+
+<link rel="manifest" href="favicon_io/site.webmanifest">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "HealthXray Period & Ovulation Calculator",
+  "operatingSystem": "All",
+  "applicationCategory": "HealthApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": "Period tracking, Ovulation prediction, Fertile window estimation"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "How does the period calculator estimate ovulation?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The calculator estimates ovulation by subtracting 14 days from your expected next period date, which is a standard biological estimate for a regular cycle."
+    }
+  }, {
+    "@type": "Question",
+    "name": "Can I use this for irregular periods?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, you can use it to track, but predictions may be less accurate. It is recommended to consult a doctor for persistent irregular cycles."
+    }
+  }]
+}
+</script>
+
+
+
+</head>
+<body>
+<div class="container">
+<header class="site-header">
+    <div class="logo-area">
+        <div class="logo-icon"><i class="fas fa-tint"></i></div>
+        <div class="logo-text">
+            <h1>Period Calculator</h1>
+        </div>
+    </div>
+
+    <!-- hamburger checkbox -->
+    <input type="checkbox" id="nav-toggle">
+    <div class="hamburger-wrapper">
+        <label for="nav-toggle" class="hamburger-label"></label>
+    </div>
+    <button class="back-arrow" id="backArrow">
+        <i class="fas fa-arrow-right"></i>
+    </button>
+</header>
+
+<!-- Main Content -->
+<div class="main-content">
+    <div class="calculator-card">
+        <h2><i class="fas fa-calendar-alt"></i> Calculate Your Cycle</h2>
+        <form id="periodForm">
+            <div class="form-group">
+                <label for="lmp">First Day of Last Period</label>
+                <input type="date" id="lmp" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cycle">Cycle Length (days)</label>
+                <input type="number" id="cycle" value="28" min="21" max="40">
+            </div>
+
+            <button type="submit" class="calculate-btn">Calculate</button>
+        </form>
+    </div>
+</div>
+
+<!-- Results -->
+<div class="results" id="results">
+    <div class="results-header">
+        <h2>Your Cycle Result</h2>
+    </div>
+    <div class="bmi-display">
+        <div class="bmi-value" id="nextPeriod">--</div>
+        <div class="bmi-category" id="ovulation">--</div>
+        <div class="info-card">
+            <h2>How the Period Calculator Works</h2>
+            <p>This calculator estimates your next period, ovulation day, and fertile window based on the first day of your last period (LMP) and your cycle length. 
+            Ovulation usually occurs about 14 days before the next period. Fertile days are the 5 days leading up to ovulation.</p>
+        </div>
+    </div>
+</div>
+<section class="period-article">
+    <h1>Complete Guide to Menstrual Cycle, Ovulation, and Fertility Tracking</h1>
+
+    <!-- Introduction -->
+    <section>
+        <h2>Introduction</h2>
+        <p>
+            Understanding your menstrual cycle is essential for overall reproductive health and family planning. The menstrual cycle is a natural process that occurs in women of reproductive age, typically lasting between 21 to 35 days. Tracking your cycle, ovulation, and fertile days can help you manage your health, plan for pregnancy, and identify any irregularities early on.
+        </p>
+        <p>
+            This guide provides a comprehensive overview of the menstrual cycle, including its phases, ovulation, fertile windows, common irregularities, and tips for maintaining menstrual health. By the end, you will have the knowledge to use tools like the Period Calculator effectively.
+        </p>
+    </section>
+
+    <!-- Basics of Menstrual Cycle -->
+    <section>
+        <h2>Basics of the Menstrual Cycle</h2>
+        <p>
+            The menstrual cycle is counted from the first day of one period to the first day of the next. It is divided into four main phases:
+        </p>
+        <ol>
+            <li><strong>Menstrual Phase:</strong> This phase marks the start of bleeding and usually lasts 3-7 days. The uterus sheds its lining, resulting in menstrual flow.</li>
+            <li><strong>Follicular Phase:</strong> Following menstruation, the body prepares for ovulation by developing follicles in the ovaries. This phase varies in length but generally lasts around 7-14 days.</li>
+            <li><strong>Ovulation Phase:</strong> Around mid-cycle, a mature egg is released from the ovary. Ovulation typically occurs 14 days before the next period in a standard 28-day cycle.</li>
+            <li><strong>Luteal Phase:</strong> After ovulation, the uterine lining thickens in preparation for a possible pregnancy. If fertilization does not occur, hormone levels drop, triggering the next menstrual cycle.</li>
+        </ol>
+        <p>
+            Understanding these phases is crucial for predicting fertile days and managing menstrual health.
+        </p>
+    </section>
+
+    <!-- How to Track Your Cycle -->
+    <section>
+        <h2>How to Track Your Menstrual Cycle</h2>
+        <p>
+            Tracking your cycle can help you understand your body, identify irregularities, and plan for pregnancy. Here are common methods:
+        </p>
+        <ul>
+            <li><strong>Calendar Method:</strong> Mark the first day of each period on a calendar. Calculate the average cycle length over 3-6 months.</li>
+            <li><strong>Period Apps:</strong> Mobile apps like our Period Calculator allow you to enter your LMP and cycle length to predict your next period and fertile days.</li>
+            <li><strong>Basal Body Temperature (BBT):</strong> Measure your temperature daily. A slight rise indicates ovulation.</li>
+            <li><strong>Cervical Mucus Observation:</strong> Fertile cervical mucus is clear and stretchy, signaling ovulation.</li>
+        </ul>
+    </section>
+
+    <!-- Ovulation Explained -->
+    <section>
+        <h2>Ovulation and Fertile Days</h2>
+        <p>
+            Ovulation is the process in which an ovary releases a mature egg. It is the most fertile period of your cycle and is essential for conception.
+        </p>
+        <h3>Signs of Ovulation</h3>
+        <ul>
+            <li>Change in cervical mucus (clear and stretchy)</li>
+            <li>Light spotting or mild pelvic pain</li>
+            <li>Increase in basal body temperature</li>
+            <li>Heightened sense of smell or libido</li>
+        </ul>
+        <h3>Fertile Window</h3>
+        <p>
+            The fertile window includes the five days leading up to ovulation and the day of ovulation itself. Sperm can survive up to five days in the female reproductive tract, while the egg remains viable for 12-24 hours.
+        </p>
+        <p>
+            Using tools like our Period Calculator, you can estimate your ovulation date and fertile days to improve chances of conception or avoid pregnancy naturally.
+        </p>
+    </section>
+
+    <!-- Irregular Periods -->
+    <section>
+        <h2>Common Menstrual Irregularities</h2>
+        <p>
+            Menstrual irregularities are common and can be caused by stress, hormonal imbalance, diet, or medical conditions. Common irregularities include:
+        </p>
+        <ul>
+            <li><strong>Irregular Cycles:</strong> Periods do not occur at consistent intervals.</li>
+            <li><strong>Heavy Bleeding (Menorrhagia):</strong> Excessive blood flow during periods.</li>
+            <li><strong>Missed Periods (Amenorrhea):</strong> Skipping one or more cycles.</li>
+            <li><strong>Painful Periods (Dysmenorrhea):</strong> Severe cramps affecting daily activities.</li>
+        </ul>
+        <p>
+            Tracking your cycle with a calculator can help identify irregularities and provide data to discuss with your healthcare provider.
+        </p>
+    </section>
+
+    <!-- Tips for Healthy Menstrual Cycle -->
+    <section>
+        <h2>Tips for Maintaining Menstrual Health</h2>
+        <ul>
+            <li>Eat a balanced diet rich in iron, vitamins, and minerals.</li>
+            <li>Exercise regularly to reduce cramps and improve blood flow.</li>
+            <li>Manage stress through meditation, yoga, or counseling.</li>
+            <li>Maintain a healthy sleep schedule.</li>
+            <li>Stay hydrated, especially during menstruation.</li>
+            <li>Track your cycle to identify any abnormalities early.</li>
+            <li>Consult a healthcare provider if you experience severe pain, heavy bleeding, or missed periods.</li>
+        </ul>
+    </section>
+
+    <!-- FAQs -->
+    <section>
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">Q1: How do I use the period calculator?</button>
+                <div class="faq-answer">
+                    <p>Enter the first day of your last period and your cycle length, then click "Calculate". The tool estimates your next period, ovulation day, and fertile window.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Q2: Can I change my cycle length?</button>
+                <div class="faq-answer">
+                    <p>Yes, adjusting the cycle length provides more accurate predictions for ovulation and next periods.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Q3: Are results accurate?</button>
+                <div class="faq-answer">
+                    <p>The calculator provides estimates. For medical advice or irregular cycles, consult a healthcare provider.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Q4: Can I track irregular cycles?</button>
+                <div class="faq-answer">
+                    <p>Yes, you can track irregular cycles, but predictions may vary. Early ultrasounds or medical guidance are recommended.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Q5: How often should I use the calculator?</button>
+                <div class="faq-answer">
+                    <p>Use it each month to track changes and predict your next cycle accurately.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Expanded Content Start -->
+<section>
+    <h2>Understanding the Menstrual Cycle Phases</h2>
+    <p>The menstrual cycle is a natural process that prepares a woman’s body for pregnancy. It is typically 28 days but can range from 21 to 35 days. The cycle is divided into four main phases: Menstrual, Follicular, Ovulation, and Luteal.</p>
+    
+    <h3>1. Menstrual Phase (Day 1-5)</h3>
+    <p>This phase begins on the first day of menstruation. The uterine lining sheds, causing bleeding. Common symptoms include cramps, bloating, fatigue, and mood changes. Proper hydration, light exercise, and warm compresses can help relieve discomfort.</p>
+    
+    <h3>2. Follicular Phase (Day 1-13)</h3>
+    <p>This phase overlaps with menstruation and continues after bleeding stops. Follicle-stimulating hormone (FSH) encourages egg development in the ovaries. Estrogen rises, thickening the uterine lining. Energy levels often improve, and it's a great time for light workouts and balanced nutrition.</p>
+    
+    <h3>3. Ovulation Phase (Day 14)</h3>
+    <p>Ovulation is the release of a mature egg from the ovary. Luteinizing hormone (LH) surges during this phase. Fertile days are typically 5 days before and 1 day after ovulation. Symptoms may include mild abdominal pain, increased cervical mucus, and heightened libido. Tracking ovulation helps in conception planning.</p>
+    
+    <h3>4. Luteal Phase (Day 15-28)</h3>
+    <p>After ovulation, progesterone rises to prepare the uterus for a possible pregnancy. If fertilization does not occur, hormone levels drop, triggering menstruation. PMS symptoms such as mood swings, bloating, and breast tenderness are common. Maintaining a healthy diet, regular exercise, and stress management is beneficial.</p>
+</section>
+
+<section>
+    <h2>Tracking Ovulation and Fertile Window</h2>
+    <p>Understanding ovulation is key for women trying to conceive or avoid pregnancy naturally. The fertile window usually spans 6 days—5 days before ovulation and the day of ovulation.</p>
+    <h3>Methods to Track Ovulation:</h3>
+    <ul>
+        <li><strong>Basal Body Temperature (BBT):</strong> Record daily morning temperature to identify ovulation spikes.</li>
+        <li><strong>Cervical Mucus Observation:</strong> Clear, stretchy mucus indicates peak fertility.</li>
+        <li><strong>Ovulation Predictor Kits:</strong> Detect LH surge in urine for precise ovulation timing.</li>
+        <li><strong>Mobile Apps:</strong> Track cycle, symptoms, and fertile days.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Understanding Irregular Periods</h2>
+    <p>Irregular cycles can vary in length or intensity. Causes include stress, hormonal imbalances, thyroid issues, PCOS, excessive exercise, and diet changes. While occasional irregularity is normal, persistent irregular cycles should be evaluated by a healthcare provider. Early detection helps prevent complications and aids fertility planning.</p>
+</section>
+
+<section>
+    <h2>Lifestyle Tips for Healthy Menstruation</h2>
+    <ul>
+        <li>Maintain a balanced diet rich in iron, calcium, and vitamins.</li>
+        <li>Stay hydrated by drinking 8-10 glasses of water daily.</li>
+        <li>Exercise regularly with light to moderate activities.</li>
+        <li>Manage stress through yoga, meditation, or breathing exercises.</li>
+        <li>Get 7-9 hours of sleep every night for hormonal balance.</li>
+        <li>Avoid excessive caffeine, alcohol, and smoking.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Menstrual Hygiene Tips</h2>
+    <p>Proper hygiene during periods prevents infections and ensures comfort:</p>
+    <ul>
+        <li>Use clean, high-quality sanitary pads, tampons, or menstrual cups.</li>
+        <li>Change pads or tampons every 4-6 hours.</li>
+        <li>Wash hands before and after changing menstrual products.</li>
+        <li>Wear breathable cotton underwear to reduce moisture buildup.</li>
+        <li>Maintain gentle genital hygiene with mild soap and water.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Common Myths and Facts</h2>
+    <ul>
+        <li><strong>Myth:</strong> You cannot exercise during periods.<br><strong>Fact:</strong> Light exercise like walking or yoga can ease cramps and improve mood.</li>
+        <li><strong>Myth:</strong> Irregular periods always mean infertility.<br><strong>Fact:</strong> Occasional irregularity is normal; persistent issues should be checked.</li>
+        <li><strong>Myth:</strong> You cannot get pregnant during periods.<br><strong>Fact:</strong> While less likely, pregnancy is possible in cycles with short intervals.</li>
+        <li><strong>Myth:</strong> Menstruation is “unclean”.<br><strong>Fact:</strong> Menstruation is a natural and healthy process.</li>
+    </ul>
+</section>
+
+
+<!-- Expanded Content End -->
+
+    <!-- Conclusion -->
+    <section>
+        <h2>Conclusion</h2>
+        <p>
+            Understanding your menstrual cycle is essential for reproductive health, pregnancy planning, and overall well-being. Tools like the Period Calculator simplify tracking your next period, ovulation, and fertile days. Regular monitoring, combined with healthy lifestyle practices, ensures better control over your menstrual health and helps detect potential irregularities early.
+        </p>
+    </section>
+</section>
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="index.html">Home</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="Terms.html">Terms and Services</a>
+        </div>
+        <div class="footer-col">
+            <h4>Wellness Topics</h4>
+            <a href="#"><i class="fas fa-tint"></i> Menstrual Health</a>
+            <a href="#"><i class="fas fa-brain"></i> Mental Health</a>
+            <a href="#"><i class="fas fa-utensils"></i> Nutrition</a>
+            <a href="#"><i class="fas fa-person-running"></i> Fitness</a>
+        </div>
+        <div class="footer-col">
+            <h4>Connect</h4>
+            <p><i class="fab fa-facebook"></i> Healthxray</p>
+            <p><i class="far fa-envelope"></i> healthxray14@gmail.com</p>
+            <p><i class="fas fa-phone-alt"></i> +92 3447814644</p>
+        </div>
+    </div>
+    <div class="copyright">
+        <i class="far fa-copyright"></i> 2026 HealthXray – professional health blog. All rights reserved.
+    </div>
+</footer>
+
+<!-- JS -->
+<script src="js files/periods.js"></script>
+</body>
+</html>

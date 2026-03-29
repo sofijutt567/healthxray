@@ -1,0 +1,487 @@
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+}
+html, body {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+/*----back errow bttn----*/
+.back-arrow {
+    background: #f4f9f7;
+    border: 2px solid #226653;
+    color: #226653;
+    padding: 0.6rem 0.8rem;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed; /* stays on screen */
+    top: 20px;       /* distance from top */
+    right: 20px;     /* moved to right */
+    z-index: 1000;
+}
+
+.back-arrow:hover {
+    background: #226653;
+    color: white;
+    border-color: #1a3b2f;
+}
+body {
+    background: #f4f9f7;
+    color: #1e2f4a;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- HEADER ---------- */
+.site-header {
+    background: white;
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid #8fc1b0;
+    flex-wrap: wrap;
+}
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo-icon {
+    background: #226653;
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+.logo-text h1 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #1a3b2f;
+}
+.logo-text p {
+    font-size: 0.75rem;
+    color: #567d6e;
+}
+.main-nav {
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.main-nav a {
+    text-decoration: none;
+    font-weight: 550;
+    color: #1f4e3d;
+    padding: 0.4rem 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+.main-nav a:hover {
+    border-bottom-color: #3b8b6e;
+    color: #0f3629;
+}
+.hamburger-wrapper {
+    display: none;
+}
+#nav-toggle {
+    display: none;
+}
+
+/* ---------- CONTENT (calculator + sidebar) ---------- */
+.content-wrapper {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* main + sidebar */
+    gap: 2rem;
+    align-items: start;
+}
+
+/* ---------- CALCULATOR ---------- */
+.calculator-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0,50,40,0.04);
+    transition: transform 0.3s ease;
+}
+.calculator-card:hover {
+    transform: translateY(-2px);
+}
+.calculator-card h2 {
+    color: #226653;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+input, select {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 2px solid #b7d9cd;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+input:focus, select:focus {
+    border-color: #226653;
+    outline: none;
+}
+.calculate-btn {
+    background: #226653;
+    color: white;
+    border: none;
+    padding: 0.9rem;
+    font-size: 1.1rem;
+    width: 100%;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.calculate-btn:hover {
+    background: #1a3b2f;
+}
+
+/* ---------- RESULTS ---------- */
+.results {
+    display: none;
+    margin-top: 1.5rem;
+    background: #e5f4ef;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+}
+.results.active {
+    display: block;
+}
+.bmi-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #226653;
+    margin-bottom: 0.5rem;
+}
+.bmi-category {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #1a3b2f;
+}
+
+/* ---------- SIDEBAR ---------- */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.sidebar-widget {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 16px rgba(34,83,70,0.03);
+    border: 1px solid #deede8;
+    transition: transform 0.3s ease;
+}
+.sidebar-widget:hover {
+    transform: translateY(-2px);
+}
+.sidebar-widget h3 {
+    font-size: 1.3rem;
+    color: #226653;
+    margin-bottom: 1rem;
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer {
+    background: #162b24;
+    color: #d6e9e1;
+    padding: 3rem 2rem 2rem;
+    margin-top: 2rem;
+    border-top: 4px solid #479f83;
+}
+.footer-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+}
+.footer-col h4 {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+    border-left: 4px solid #68b89b;
+    padding-left: 12px;
+}
+.footer-col p,
+.footer-col a {
+    color: #c7e0d7;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.7rem;
+    font-size: 0.95rem;
+}
+.footer-col a:hover {
+    color: #bef5e2;
+    padding-left: 5px;
+}
+.copyright {
+    text-align: center;
+    border-top: 1px solid #3c6052;
+    padding-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #9dbeb2;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media screen and (max-width: 1200px) {
+    .content-wrapper {grid-template-columns: 2fr 1fr;}
+}
+@media screen and (max-width: 950px) {
+    .content-wrapper {grid-template-columns: 1fr; padding: 0 1rem;}
+    .calculator-card, .sidebar-widget {margin: 0 auto;}
+}
+@media screen and (max-width: 880px) {
+    .main-nav {display: none; flex-direction: column; width: 100%; background: white; padding: 1.5rem; border-top: 2px solid #b8d9ce;}
+    #nav-toggle:checked ~ .main-nav {display: flex;}
+    .hamburger-wrapper {display: flex; align-items: center;}
+    .hamburger-label {font-size: 2rem; color: #226653; cursor: pointer;}
+}
+
+/* Smooth transitions for small screens */
+input, select, button, .calculator-card, .sidebar-widget {
+    transition: all 0.3s ease;
+}
+.pregnancy-article {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.pregnancy-article h1 {
+    font-size: 28px;
+    color: #226653;
+    margin-bottom: 15px;
+}
+
+.pregnancy-article h2 {
+    font-size: 22px;
+    color: #226653;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.pregnancy-article p, .pregnancy-article li, .pregnancy-article ol li {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+/* ---------- Pregnancy Table Styling ---------- */
+.pregnancy-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden; /* rounded corners for table */
+    box-shadow: 0 6px 18px rgba(34,83,70,0.05);
+}
+
+.pregnancy-table thead {
+    background: #226653;
+    color: white;
+}
+
+.pregnancy-table thead th {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.pregnancy-table tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0ede8;
+    font-size: 0.95rem;
+    color: #1e2f4a;
+    vertical-align: top;
+}
+
+.pregnancy-table tbody tr:hover {
+    background: #f0f8f5;
+}
+
+.pregnancy-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsive for small screens */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* horizontal scroll */
+    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+    margin-bottom: 1.5rem;
+}
+
+.table-responsive::-webkit-scrollbar {
+    height: 6px;
+}
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #226653;
+    border-radius: 3px;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 600px) {
+    .pregnancy-table thead {
+        display: none; /* hide header on very small screens */
+    }
+
+    .pregnancy-table tbody tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #e0ede8;
+        border-radius: 12px;
+        padding: 10px;
+    }
+
+    .pregnancy-table tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 10px;
+        font-size: 14px;
+        border-bottom: 1px dashed #b7d9cd;
+    }
+
+    .pregnancy-table tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #226653;
+        flex-basis: 40%;
+    }
+
+    .pregnancy-table tbody td:last-child {
+        border-bottom: none;
+    }
+}
+
+.pregnancy-article ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+.faq-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem 1.5rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    font-family: Arial, sans-serif;
+}
+
+.faq-section h2 {
+    color: #226653;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e5f4ef;
+}
+
+.faq-question {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 10px;
+    cursor: pointer;
+    color: #1a3b2f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+.faq-question:hover {
+    background: #e5f4ef;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 10px;
+}
+
+.faq-answer p {
+    padding: 10px 0;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* Arrow icon using pseudo-element */
+.faq-question::after {
+    content: "\25BC";
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active::after {
+    transform: rotate(-180deg);
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .faq-section {
+        padding: 1rem;
+    }
+    .faq-question {
+        font-size: 0.95rem;
+    }
+    .faq-answer p {
+        font-size: 0.9rem;
+    }
+}

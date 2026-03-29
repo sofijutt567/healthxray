@@ -1,0 +1,391 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Free Pregnancy calculator - HealthXRay</title>
+      
+      <!-- Meta tags for SEO & Social -->
+<meta name="description" content="Free Pregnancy Due Date Calculator. Estimate your baby's due date based on LMP and track your pregnancy week by week with HealthXRay.">
+<meta name="keywords" content="pregnancy due date calculator, calculate pregnancy week, due date estimator 2026, pregnancy tracker by LMP, HealthXray pregnancy tools">
+<link rel="canonical" href="https://healthxray.online/pregnancy.html" />
+
+      <meta name="author" content="HealthXRay">
+  
+      <!-- Open Graph -->
+      <meta property="og:title" content="pregnancy calculator - HealthXRay">
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://healthxray.online/pregnancy.html">
+      <meta property="og:image" content="https://healthxray.online/images/pregnancy-og.jpg">
+  
+      <!-- Twitter Card -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="pregnancy - HealthXRay">
+      <meta name="twitter:image" content="https://healthxray.online/images/pregnancy-og.jpg">
+  
+      <!-- Favicon -->
+      <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+  
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+      <!-- CSS -->
+  <link rel="stylesheet" href="Css files/pregnancy.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+
+<link rel="icon" type="image/png" sizes="192x192" href="favicon_io/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
+
+<link rel="manifest" href="favicon_io/site.webmanifest">
+
+  
+      <!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "HealthXray Pregnancy Calculator",
+  "operatingSystem": "All",
+  "applicationCategory": "HealthApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": "Due Date Calculation, Weekly Pregnancy Tracking, Fetal Development Guide"
+}
+</script>
+
+  </head>
+  <body>
+      <div class="container">
+  <header class="site-header">
+      <div class="logo-area">
+          <div class="logo-icon"><i class="fas fa-baby"></i></div>
+          <div class="logo-text">
+              <h1>Pregnancy calculator</h1>
+          </div>
+      </div>
+  
+      <!-- hamburger checkbox -->
+      <input type="checkbox" id="nav-toggle">
+      <div class="hamburger-wrapper">
+          <label for="nav-toggle" class="hamburger-label"></label>
+      </div><button class="back-arrow" id="backArrow">
+      <i class="fas fa-arrow-right"></i>
+  </button></header>
+  
+          <!-- Main Content -->
+          <div class="main-content">
+              <div class="calculator-card">
+                  <h2><i class="fas fa-calculator"></i> Calculate Your Pregnancy</h2>
+  <form id="pregnancyForm">
+      <div class="form-group">
+          <label for="lmp">First Day of Last Period</label>
+          <input type="date" id="lmp" required>
+      </div>
+  
+      <div class="form-group">
+          <label for="cycle">Cycle Length (days)</label>
+          <input type="number" id="cycle" value="28" min="21" max="40">
+      </div>
+  
+      <button type="submit" class="calculate-btn">Calculate Due Date</button>
+  </form>
+              </div>
+          </div>
+  
+          <!-- Results -->
+          <div class="results" id="results">
+              <div class="results-header">
+             <h2>Your Pregnancy Result</h2>
+              </div>
+              <div class="bmi-display">
+  <div class="bmi-value" id="dueDate">--</div>
+  <div class="bmi-category" id="pregnancyWeek">--</div>
+                              <div class="info-card">
+             <h2>How the Pregnancy Calculator Works</h2>
+  <p>A pregnancy calculator helps estimate your baby’s expected due date using the first day of your last menstrual period (LMP). 
+  Pregnancy usually lasts around 40 weeks (280 days). By entering your last period date, the calculator can estimate your due date 
+  and show how many weeks pregnant you are.</p>
+              </div>
+          </div>
+      </div>
+      <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-container">
+        <div class="faq-item">
+            <button class="faq-question">Q1: How do I use the pregnancy calculator?</button>
+            <div class="faq-answer">
+                <p>Simply enter the first day of your last period (LMP) and your cycle length, then click "Calculate Due Date". The tool will estimate your due date and current pregnancy week.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Q2: Can I change my cycle length?</button>
+            <div class="faq-answer">
+                <p>Yes, the calculator allows you to adjust your cycle length if it's different from the standard 28 days. This improves the accuracy of the estimated due date.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Q3: Is the calculator accurate?</button>
+            <div class="faq-answer">
+                <p>The calculator provides a reliable estimate based on your LMP, but ultrasound scans are more precise for confirming fetal age and due date.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Q4: Can I use this tool on mobile?</button>
+            <div class="faq-answer">
+                <p>Yes! The FAQ and calculator are fully responsive and fit all screen sizes, including smartphones and tablets.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Q5: What if I have irregular periods?</button>
+            <div class="faq-answer">
+                <p>If your periods are irregular, early ultrasounds are recommended for a more accurate estimate of your pregnancy week and due date.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Q6: How often should I check my pregnancy week?</button>
+            <div class="faq-answer">
+                <p>It's good to check periodically as your pregnancy progresses. Weekly tracking helps you stay informed about fetal development.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Q7: Can I print or save my result?</button>
+            <div class="faq-answer">
+                <p>Yes, you can take a screenshot or copy the calculated due date for your records.</p>
+            </div>
+        </div>
+    </div>
+</section>
+      <article class="article-card pregnancy-article">
+      <h1>Comprehensive Guide to Pregnancy Age: Calculation, Tracking, and Tips</h1>
+  
+      <!-- Introduction -->
+      <section>
+          <h2>Introduction</h2>
+          <p>
+              Pregnancy is an incredible journey in a woman's life. Tracking pregnancy age, also known as gestational age, is crucial for monitoring fetal development, scheduling prenatal visits, and ensuring the health of both mother and baby. Gestational age is typically measured in weeks starting from the first day of a woman’s last menstrual period (LMP). Knowing your pregnancy age helps expectant mothers make informed decisions about their diet, lifestyle, and medical care. 
+              ​"Maintaining a healthy weight is important; check your BMI before or during early pregnancy."
+​"Track your daily Calories to ensure you are getting enough energy for the baby."
+          </p>
+          <p>
+              This guide provides a detailed overview of pregnancy age, how to calculate it accurately, understand weekly fetal development, tips for healthy pregnancy, and answers to common questions. By the end of this article, you will have a comprehensive understanding of how pregnancy age impacts both maternal and fetal health.
+          </p>
+      </section>
+  
+      <!-- Basics of Pregnancy Age -->
+      <section>
+          <h2>Basics of Pregnancy Age</h2>
+          <p>
+              Pregnancy age, often referred to as gestational age, differs from the actual fetal age. It is measured from the first day of your last menstrual period (LMP), not from the day of conception. This method provides a standardized way for doctors and healthcare professionals to track pregnancy progression and fetal development.
+          </p>
+          <h3>Why Pregnancy Age Matters</h3>
+          <p>
+              Accurate knowledge of pregnancy age is essential for several reasons:
+          </p>
+          <ul>
+              <li>Determining due date and expected delivery timeline.</li>
+              <li>Scheduling prenatal check-ups and ultrasounds.</li>
+              <li>Monitoring fetal growth and identifying potential complications.</li>
+              <li>Planning for labor and delivery.</li>
+          </ul>
+          <h3>Gestational vs Fetal Age</h3>
+          <p>
+              Gestational age starts from LMP, whereas fetal age begins from the actual day of conception. Fetal age is usually about two weeks less than gestational age. Understanding the difference is important for accurate tracking and interpreting medical reports.
+          </p>
+      </section>
+  
+      <!-- How to Calculate Pregnancy Age -->
+      <section>
+          <h2>How to Calculate Pregnancy Age</h2>
+          <p>
+              Calculating pregnancy age can be done manually or using online tools. Here are the most common methods:
+          </p>
+          <h3>1. Using Last Menstrual Period (LMP)</h3>
+          <p>
+              Track the first day of your last menstrual period and count the weeks until today. This provides the gestational age. For example, if your LMP was 8 weeks ago, you are considered 8 weeks pregnant.
+          </p>
+          <h3>2. Using Pregnancy Calculators</h3>
+          <p>
+              Many online pregnancy calculators allow you to enter your LMP and cycle length to estimate your due date and current pregnancy week. These calculators are simple and widely used.
+          </p>
+          <h3>3. Ultrasound Scans</h3>
+          <p>
+              Ultrasound scans provide the most accurate measurement of gestational age. Early ultrasounds (6-12 weeks) can determine fetal size and confirm the expected due date.
+          </p>
+          <h3>4. Mobile Apps</h3>
+          <p>
+              Pregnancy tracking apps provide weekly updates, fetal growth visualizations, and tips for a healthy pregnancy. Apps often calculate pregnancy age based on LMP or conception date.
+          </p>
+      </section>
+  
+      <!-- Week-by-Week Pregnancy Guide -->
+  <section>
+    <h2>Week-by-Week Pregnancy Guide</h2>
+    <p>
+        Pregnancy lasts around 40 weeks, divided into three trimesters. The following table summarizes fetal development, maternal changes, and tips for each stage:
+    </p>
+    <div class="table-responsive">
+        <table class="pregnancy-table">
+            <thead>
+                <tr>
+                    <th>Week</th>
+                    <th>Fetal Development</th>
+                    <th>Mother’s Symptoms</th>
+                    <th>Tips & Advice</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1-4</td>
+                    <td>Fertilization occurs; embryo begins forming</td>
+                    <td>Mild cramps, fatigue, mood swings</td>
+                    <td>Start prenatal vitamins, maintain a healthy diet</td>
+                </tr>
+                <tr>
+                    <td>5-8</td>
+                    <td>Heartbeat detectable; organ formation begins</td>
+                    <td>Nausea, breast tenderness, food cravings</td>
+                    <td>Eat small, frequent meals; rest adequately</td>
+                </tr>
+                <tr>
+                    <td>9-12</td>
+                    <td>Fetus grows rapidly; facial features start developing</td>
+                    <td>Morning sickness may continue; fatigue decreases</td>
+                    <td>Hydrate, follow balanced diet, attend first prenatal checkup</td>
+                </tr>
+                <tr>
+                    <td>13-16</td>
+                    <td>Skeleton hardens; fetus begins movement</td>
+                    <td>Increased appetite; slight weight gain</td>
+                    <td>Engage in light exercise; continue prenatal vitamins</td>
+                </tr>
+                <tr>
+                    <td>17-20</td>
+                    <td>Fetus develops senses; hair growth begins</td>
+                    <td>Quickening (fetal movement felt); belly expansion</td>
+                    <td>Track fetal movement; maintain healthy posture</td>
+                </tr>
+                <tr>
+                    <td>21-24</td>
+                    <td>Rapid brain development; fat layers form</td>
+                    <td>Backaches; mild swelling of ankles</td>
+                    <td>Stretching exercises; wear comfortable shoes</td>
+                </tr>
+                <tr>
+                    <td>25-28</td>
+                    <td>Eyes open; fetus responds to sound</td>
+                    <td>Shortness of breath; leg cramps</td>
+                    <td>Sleep on side; practice breathing exercises</td>
+                </tr>
+                <tr>
+                    <td>29-32</td>
+                    <td>Bones fully developed; lungs mature</td>
+                    <td>Braxton Hicks contractions; heartburn</td>
+                    <td>Eat smaller meals; stay hydrated; pelvic floor exercises</td>
+                </tr>
+                <tr>
+                    <td>33-36</td>
+                    <td>Fetus gains weight; immune system strengthens</td>
+                    <td>Frequent urination; fatigue</td>
+                    <td>Rest frequently; prepare for labor class</td>
+                </tr>
+                <tr>
+                    <td>37-40</td>
+                    <td>Fetus reaches full term; lungs fully developed</td>
+                    <td>Pelvic pressure; irregular contractions</td>
+                    <td>Pack hospital bag; discuss birth plan with doctor</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+  
+      <!-- Tips for Healthy Pregnancy -->
+      <section>
+          <h2>Tips for a Healthy Pregnancy</h2>
+          <ul>
+              <li>Maintain a balanced diet rich in vitamins, minerals, and protein.</li>
+              <li>Stay hydrated; drink 8-10 glasses of water daily.</li>
+              <li>Engage in safe, light exercise like walking or prenatal yoga.</li>
+              <li>Attend regular prenatal checkups.</li>
+              <li>Take prescribed prenatal vitamins, especially folic acid.</li>
+              <li>Monitor fetal movements and note any sudden changes.</li>
+              <li>Avoid smoking, alcohol, and excessive caffeine.</li>
+              <li>Ensure adequate sleep (7-9 hours per night).</li>
+              <li>Manage stress through meditation, music, or counseling.</li>
+          </ul>
+      </section>
+  
+      <!-- Common Concerns and FAQs -->
+      <section>
+          <h2>Common Concerns and FAQs</h2>
+          <h3>Q1: What if my periods are irregular?</h3>
+          <p>
+              Irregular periods can make calculating gestational age difficult. Early ultrasounds can provide a more accurate estimate of fetal age and expected due date.
+          </p>
+          <h3>Q2: Can pregnancy age differ from fetal age?</h3>
+          <p>
+              Yes, gestational age is a standard estimate and may differ slightly from fetal age, which begins from conception. Most discrepancies are 1-2 weeks and are normal.
+          </p>
+          <h3>Q3: How reliable are online pregnancy calculators?</h3>
+          <p>
+              Online calculators provide a reliable estimate based on LMP, but ultrasounds are more accurate for confirming due dates and fetal size.
+          </p>
+          <h3>Q4: When should I see a doctor?</h3>
+          <p>
+              Schedule your first prenatal visit within 6-8 weeks of pregnancy. Regular checkups should follow every 4 weeks in the first two trimesters, every 2 weeks in the third trimester, and weekly after 36 weeks.
+          </p>
+          <h3>Q5: How to track pregnancy symptoms?</h3>
+          <p>
+              Keep a pregnancy journal to record symptoms like nausea, fatigue, cravings, or fetal movements. This helps your healthcare provider monitor your progress and detect any complications early.
+          </p>
+      </section>
+  
+      <!-- Conclusion -->
+      <section>
+          <h2>Conclusion</h2>
+          <p>
+              Tracking pregnancy age is essential for a safe and healthy pregnancy journey. Using your LMP, pregnancy calculators, and regular ultrasounds, you can monitor fetal development and plan prenatal care effectively. Following tips on nutrition, exercise, and prenatal monitoring ensures the wellbeing of both mother and baby. Always consult your healthcare provider for personalized advice and attend regular checkups to stay informed and confident throughout your pregnancy.
+          </p>
+      </section>
+  </article>
+      <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+      <div class="footer-grid">
+          <div class="footer-col">
+              <h4>explore</h4>
+            <a href="index.html">
+  </i> Home
+  </a>
+              <a href="privacy-policy.html"></i>Privacy Policy</a>
+  
+              <a href="Terms.html"></i>Terms and servises</a>
+          <div class="footer-col"/>
+              <h4>wellness topics</h4>
+              <a href="bmi.html">
+              <a href="#"><i class="fas fa-apple-alt"></i>What is Bmi</a>
+              <a href="#"><i class="fas fa-brain"></i> Mental health</a>
+              <a href="#"><i class="fas fa-utensils"></i> Nutrition</a>
+              <a href="#"><i class="fas fa-person-running"></i> Fitness</a>
+          </div>
+          <div class="footer-col">
+              <h4>connect</h4>
+              <p><i class="fab fa-facebook"></i> Healthxray</p>
+              <p><i class="far fa-envelope"></i> healthxray14@gmail.com</p>
+              <p><i class="fas fa-phone-alt"></i> +92 3447814644</p>
+          </div>
+      </div>
+      <div class="copyright">
+          <i class="far fa-copyright"></i> 2026 HealthXray – professional health blog. All rights reserved.
+      </div>
+  </footer>
+  
+      <!-- JS -->
+      <script src="js files/Pregnancy.js"></script>
+  </body>
+  </html>

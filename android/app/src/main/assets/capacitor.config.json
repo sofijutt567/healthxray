@@ -1,0 +1,10 @@
+{
+	"appId": "com.techsufianx.health",
+	"appName": "HealthXRay",
+	"webDir": "www",
+	"cordova": {
+		"preferences": {
+			"Fullscreen": "true"
+		}
+	}
+}
