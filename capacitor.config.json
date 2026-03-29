@@ -1,0 +1,12 @@
+{
+  "appId": "com.healthxray.app",
+  "appName": "HealthXRay",
+  "webDir": "www",
+  "cordova": {
+    "preferences": {
+      "Fullscreen": "true",
+      "Orientation": "portrait",
+      "BackgroundColor": "0xffffffff"
+    }
+  }
+}

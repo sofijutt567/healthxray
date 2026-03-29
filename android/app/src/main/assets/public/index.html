@@ -526,7 +526,19 @@
         <i class="far fa-copyright"></i> 2026 HealthXray – professional health Tools. All rights reserved.
     </div>
 </footer>
+<script src="cordova.js"></script>
+<script>
+  document.addEventListener('deviceready', function() {
+    admob.banner.config({
+      id: 'ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX', // Apna AdMob Banner ID yahan dalein
+      isTesting: true, // Pehle true rakhein taake account suspend na ho
+      autoShow: true
+    });
+    admob.banner.prepare();
+  }, false);
+</script>
 
 
 </body>
 </html>
+
