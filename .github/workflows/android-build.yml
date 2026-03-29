@@ -23,17 +23,20 @@ jobs:
           npm install
           npm install jetifier --save-dev
 
-      - name: Sync & Targeted Fix
+      - name: Sync & Force Dependency Injection
         run: |
           npx cap sync android
           
-          # 1. Root build.gradle mein sirf repositories fix karna (Safety first)
+          # 1. Root build.gradle repositories fix
           sed -i 's/google()/google()\n        mavenCentral()/g' android/build.gradle
           
-          # 2. Ads library ko sirf App module mein dalna (Sahi tareeka)
+          # 2. HAR plugin ke build.gradle mein Ads library inject karna
+          find android/capacitor-cordova-android-plugins -name "build.gradle" -exec sed -i '/dependencies {/a \    implementation "com.google.android.gms:play-services-ads:23.0.0"' {} +
+          
+          # 3. App module mein bhi ensure karna
           sed -i '/dependencies {/a \    implementation "com.google.android.gms:play-services-ads:23.0.0"' android/app/build.gradle
           
-          # 3. Jetifier and AndroidX migration
+          # 4. AndroidX Migration
           npx jetifier -p android
           find android/capacitor-cordova-android-plugins -name "*.java" -exec sed -i 's/android.support.annotation/androidx.annotation/g' {} +
           find android/capacitor-cordova-android-plugins -name "*.java" -exec sed -i 's/android.support.v4.app/androidx.core.app/g' {} +
