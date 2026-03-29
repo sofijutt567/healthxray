@@ -6,33 +6,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
       - name: Setup Java 21
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: '21'
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
-
-      - name: Install & Sync
+      - name: Build & Bundle
         run: |
           npm install
+          # 1. Purani files saaf karna
+          rm -rf android/app/src/main/assets/public
+          # 2. Sync folders correctly
+          npx cap copy android
           npx cap sync android
           npm install jetifier --save-dev
           npx jetifier
-
       - name: Build APK
         run: |
           cd android
           chmod +x gradlew
           ./gradlew assembleRelease --no-daemon
-          
       - name: Upload APK
-        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: HealthXRay-APK

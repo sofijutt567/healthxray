@@ -2,6 +2,12 @@
   "appId": "com.healthxray.app",
   "appName": "HealthXRay",
   "webDir": "www",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https",
+    "allowNavigation": ["*"],
+    "cleartext": true
+  },
   "cordova": {
     "preferences": {
       "Fullscreen": "true",
@@ -10,3 +16,4 @@
     }
   }
 }
+
