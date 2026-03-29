@@ -23,14 +23,11 @@ jobs:
           npm install
           npm install jetifier --save-dev
 
-      - name: Sync & Jetify
+      - name: Sync & Global Jetify
         run: |
           npx cap sync android
-          npx jetifier -p android/capacitor-cordova-android-plugins
-
-      - name: Fix AndroidX Annotations
-        run: |
-          find android -name "*.java" -exec sed -i 's/android.support.annotation/androidx.annotation/g' {} +
+          # Pure android folder ko modern AndroidX mein convert karein
+          npx jetifier -p android
 
       - name: Build APK
         run: |
